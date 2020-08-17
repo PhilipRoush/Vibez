@@ -10,20 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_130223) do
+ActiveRecord::Schema.define(version: 5) do
 
-  create_table "ducks", force: :cascade do |t|
+  create_table "artists", force: :cascade do |t|
     t.string "name"
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
-  create_table "students", force: :cascade do |t|
+  create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.integer "mod"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "song_id"
+    t.integer "user_id"
+    t.integer "rating"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.integer "artist_id"
+    t.integer "genre_id"
+    t.string "title"
+    t.date "release_date"
+    t.string "link"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
   end
 
 end
