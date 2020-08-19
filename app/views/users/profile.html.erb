@@ -1,12 +1,24 @@
 <h1> Welcome to Your Profile! </h1>
 <h2><%= @user.username %></h2>
 
-<%= button_to 'See My Songs', profile_songs_path(@user), :method => :get %>
-<br>
-<br>
+<h2>Your Songs</h2>
+<ul>
+<% @user.songs.each do |song| %>
+    <li><%= link_to song.title, song_path(song) %> - <%= @user.song_rating(song).rating %> stars</li>
+<% end %>
+</ul>
 
-<br>
-<br>
-<%= button_to 'See My Artists', profile_artists_path(@user), :method => :get %>
+<h2>Your Artists</h2>
+<ul>
+<% @user.unique_artists.each do |artist| %>
+    <li><%= link_to artist.name, artist_path(artist) %> - <%= @user.artist_rating(artist) %> stars</li>
+<% end %>
+</ul>
 
+<h2>Your Genres</h2>
+<ul>
+<% @user.unique_genres.each do |genre| %>
+    <li><%= link_to genre.name, genre_path(genre) %></li>
+<% end %>
+</ul>
 
