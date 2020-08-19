@@ -1,19 +1,19 @@
 #artists
 
 10.times do
-    Artist.create(name: Faker::Music.band)
+    Artist.create(name: Faker::Music.unique.band)
 end
 
 10.times do
-    Genre.create(name: Faker::Music.genre)
+    Genre.create(name: Faker::Music.unique.genre)
 end
 
 30.times do
-    Song.create(title: Faker::Music.album, artist_id: rand(1..10), genre_id: rand(1..10), release_date: Faker::Date.backward, link: Faker::Internet.url)
+    Song.create(title: Faker::Music.unique.album, artist_id: rand(1..10), genre_id: rand(1..10), release_date: Faker::Date.backward, link: Faker::Internet.url)
 end
 
 10.times do
-    User.create(username: Faker::Internet.username, password: Faker::Internet.password)
+    User.create(username: Faker::Internet.unique.username, password_digest: Faker::Internet.password)
 end
 
 50.times do
