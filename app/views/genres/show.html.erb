@@ -1,0 +1,15 @@
+<h1><%= @genre.name %></h1>
+
+<h2>Songs:</h2>
+<ul>
+<% @genre.songs.each do |song| %>
+    <li><%= link_to song.title, song_path(song) %> - <%= link_to song.artist.name, artist_path(song.artist) %></li><br>
+<% end %>
+</ul>
+
+<h2>Artists:</h2>
+<ul>
+<% @genre.sort_artists.each do |artist| %>
+    <li><%= link_to artist.name, artist_path(artist) %> (<%= @genre.songs_per_artist(artist) %> songs)</li><br>
+<% end %>
+</ul>
