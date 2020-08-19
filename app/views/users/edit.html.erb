@@ -1,0 +1,15 @@
+<h1>Edit Profile</h1>
+<%= form_for @user do |f| %>
+    <%= f.label :username, "Username" %>
+    <%= f.text_field :username %>
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password %><br>
+
+  
+    <%= f.submit "Save Changes"%>
+  <% end %>
+  <% if @errors %>
+    <% @errors.each do |error| %>
+      <%= error %>
+    <% end %>
+  <% end %>

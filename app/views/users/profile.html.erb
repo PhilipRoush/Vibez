@@ -1,0 +1,12 @@
+<h1> Welcome to Your Profile! </h1>
+<h2><%= @user.username %></h2>
+
+<%= button_to 'See My Songs', profile_songs_path(@user), :method => :get %>
+<br>
+<br>
+
+<br>
+<br>
+<%= button_to 'See My Artists', profile_artists_path(@user), :method => :get %>
+
+
