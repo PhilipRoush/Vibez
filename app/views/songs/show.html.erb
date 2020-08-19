@@ -1,6 +1,12 @@
 <h1><%= @song.title %></h1>
 
-<p>Artist: <%= @song.artist.name %></p>
-<p>Genre: <%= @song.genre.name %></p>
+<% if @song.ratings.count == 0 %>
+<h2>Be the first to give a rating!</h2>
+<% else %>
+<h2><%= @song.average_rating %> stars, based on <%= @song.ratings.count %> reviews!</h2>
+<% end %>
+
+<p>Artist: <%= link_to @song.artist.name, artist_path(@song.artist) %></p>
+<p>Genre: <%= link_to @song.genre.name, genre_path(@song.genre) %></p>
 <p>Release Date: <%= @song.release_date %></p>
 <%= link_to "Listen Here", @song.link %>

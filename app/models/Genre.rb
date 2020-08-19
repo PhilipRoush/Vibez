@@ -17,8 +17,8 @@ class Genre < ApplicationRecord
 
    #sorts artists from most songs in this genre to least
    def sort_artists
-      self.unique_artists.sort_by do |artists| 
-         self.songs_per_artist(artists)
+      self.unique_artists.sort_by do |artist| 
+         self.songs_per_artist(artist)
       end.reverse
    end
 end

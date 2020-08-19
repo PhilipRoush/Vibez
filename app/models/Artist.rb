@@ -32,7 +32,8 @@ class Artist < ApplicationRecord
       if self.ratings.count == 0
          nil
       else
-         rating_sum.to_f/self.ratings.count.to_f
+         avg = rating_sum.to_f/self.ratings.count.to_f
+         avg.round(2)
       end
    end
 
