@@ -1,0 +1,7 @@
+<h1>Top 10 Highest Rated Songs</h1>
+
+<ol>
+<% Song.top_songs.each do |song| %>
+    <li><%= link_to song.title, song_path(song) %> - <%= song.average_rating %> stars</li>
+<% end %>
+</ol>

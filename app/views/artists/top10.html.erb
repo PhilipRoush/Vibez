@@ -1,0 +1,7 @@
+<h1>Top 10 Highest Rated Artists</h1>
+
+<ol>
+<% Artist.top_artists.each do |artist| %>
+    <li><%= link_to artist.name, artist_path(artist) %> - <%= artist.average_rating %> star average</li>
+<% end %>
+</ol>

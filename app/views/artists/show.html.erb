@@ -1,5 +1,11 @@
 <h1><%= @artist.name %></h1>
 
+<% if @artist.ratings.count == 0 %>
+<h2>Be the first to rate this artist's songs!</h2>
+<% else %>
+<h2><%= @artist.average_rating %> star average, based on <%= @artist.ratings.count %> reviews!</h2>
+<% end %>
+
 <h2>Songs:</h2>
 <ul>
 <% @artist.songs.each do |song| %>

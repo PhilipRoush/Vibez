@@ -5,42 +5,10 @@ class Artist < ApplicationRecord
    has_many :users, through: :songs
 
    validates :name, presence: true
-    
-   #returns a list of genres with no duplicates
-   def unique_genres
-      self.genres.uniq
-   end
 
    #returns a count of songs by the artist in a specific genre
    def songs_per_genre(genre)
       Song.where(artist: self, genre: genre).count
-   end
-
-   #sorts genres from most songs by this artist to least
-   def sort_genres
-      self.unique_genres.sort_by do |genre| 
-         self.songs_per_genre(genre)
-      end.reverse
-   end
-
-   #average rating of all songs by this artist
-   def average_rating
-      rating_sum = 0
-      self.ratings.each do |rating|
-         rating_sum += rating.rating
-      end
-      if self.ratings.count == 0
-         nil
-      else
-         rating_sum.to_f/self.ratings.count.to_f
-      end
-   end
-
-   #returns a list of songs that have ratings
-   def rated_songs
-      self.songs.reject do |song|
-         song.average_rating == nil
-      end
    end
    
    #sorts songs from highest average rating to lowest (unrated songs aren't included)
@@ -49,4 +17,16 @@ class Artist < ApplicationRecord
          song.average_rating
       end.reverse
    end
+
+   #returns an array of 10 artists sorted from highest average rating to lowest
+   def self.top_artists
+      sorted = Artist.all.sort_by do |artist| 
+          artist.average_rating
+      end.reverse
+      until sorted.length <= 10 do
+         sorted.pop
+      end
+      sorted
+   end
+
 end

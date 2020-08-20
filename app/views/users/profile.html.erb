@@ -3,22 +3,22 @@
 
 <h2>Your Songs</h2>
 <ul>
-<% @user.songs.each do |song| %>
+<% @user.sort_songs.each do |song| %>
     <li><%= link_to song.title, song_path(song) %> - <%= @user.song_rating(song).rating %> stars</li>
 <% end %>
 </ul>
 
 <h2>Your Artists</h2>
 <ul>
-<% @user.unique_artists.each do |artist| %>
+<% @user.sort_artists.each do |artist| %>
     <li><%= link_to artist.name, artist_path(artist) %> - <%= @user.artist_rating(artist) %> stars</li>
 <% end %>
 </ul>
 
 <h2>Your Genres</h2>
 <ul>
-<% @user.unique_genres.each do |genre| %>
-    <li><%= link_to genre.name, genre_path(genre) %></li>
+<% @user.sort_genres.each do |genre| %>
+    <li><%= link_to genre.name, genre_path(genre) %> - <%= @user.songs_per_genre(genre) %> songs</li>
 <% end %>
 </ul>
 
