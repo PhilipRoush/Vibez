@@ -1,25 +1,25 @@
 class RatingsController < ApplicationController
 
-  def index
-    @ratings = Rating.all.select{ |rating| rating.user_id == @user.id}
-  
-
-  end
 
   def new
-    if params[:song_id] && @song = Song.find_by_id(params[:song_id])   
-      @rating = @song.rating.build 
-    else
-      @rating = Rating.new
-    end
+    @rating = Rating.new
+    @errors = flash[:errors]
   end
 
   def create
+    @user = session[:user_id]
     @rating = Rating.new(rating_params)
-    if @rating.save
-      redirect_to rating_path(@rating)
+    @rating.user_id = @user
+    @song = Song.find(@rating.song_id)
+    
+    if @rating.valid?
+       
+      @rating.save
+      redirect_to song_path(@song)
+      
     else
-      render :index
+      flash[:errors] = @rating.errors.full_messages
+      redirect_to new_rating_path
     end
   end
 
@@ -34,7 +34,7 @@ class RatingsController < ApplicationController
   end
 
   def rating_params
-    params.require(:rating).permit(:user_id, :song_id, rating_attributes: [:title])
+    params.require(:rating).permit(:user_id, :song_id, :rating)
   end
   
   end

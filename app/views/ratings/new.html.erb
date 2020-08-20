@@ -11,6 +11,9 @@
         <%= f.label :rating, "Rate this song (1-5):"%>
         <%= f.select(:rating, [5,4,3,2,1], {}, {:class=>"form-control"}) %>
     <%= f.submit :"Create Rating", class:"btn btn-primary"%>
-
-
 <% end %>
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <% end %>
+  <% end %>
