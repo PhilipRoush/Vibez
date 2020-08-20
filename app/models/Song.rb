@@ -24,20 +24,6 @@ class Song < ApplicationRecord
       self.genre.update(genre)
    end
 
-   #returns the average rating is a song has been rated, or nil if it hasn't
-   def average_rating
-      rating_sum = 0
-      self.ratings.each do |rating|
-         rating_sum += rating.rating
-      end
-      if self.ratings.count == 0
-         nil
-      else
-         avg = rating_sum.to_f/self.ratings.count.to_f
-         avg.round(2)
-      end
-   end
-
    #returns an array of songs that have ratings
    def self.rated_songs
       Song.all.reject do |song|

@@ -5,11 +5,6 @@ class Genre < ApplicationRecord
 
    validates :name, presence: true
 
-   #returns a list of artists in this genre with no duplicates
-   def unique_artists
-      self.artists.uniq
-   end
-
    #returns a count of how many songs a specific artist has in this genre 
    def songs_per_artist(artist)
       Song.where(genre: self, artist: artist).count

@@ -7,16 +7,6 @@ class User < ApplicationRecord
    validates :username, uniqueness: true, presence: true
     has_secure_password
 
-    #returns a unique array of artists whose songs the user has liked
-    def unique_artists
-        self.artists.uniq
-    end
-
-    #returns a unique array of genres the user has liked songs from
-    def unique_genres
-        self.genres.uniq
-    end
-
     #returns a rating object for this specific user and a specific song
     def song_rating(song)
         Rating.find_by(user: self, song: song)
@@ -31,13 +21,6 @@ class User < ApplicationRecord
             end
         end
         song_count
-    end
-
-    #sorts genres from most songs liked by this user to least
-    def sort_genres
-        self.unique_genres.sort_by do |genre| 
-           self.songs_per_genre(genre)
-        end.reverse
     end
 
     #sorts artists from highest average rating by user to lowest
