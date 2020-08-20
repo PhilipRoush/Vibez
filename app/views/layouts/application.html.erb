@@ -10,7 +10,10 @@
   </head>
 
   <body>
-    <div id="nav">
+  <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+    <div class="nav">
       <% if session[:user_id] == nil %>
         <%= link_to "Log In", login_path %>
         <%= link_to "Sign Up", signup_path %>
@@ -23,6 +26,16 @@
       <%= link_to "Genre Index", genres_path %>
 
     </div>
+     </header>
+      </div>
+    </div>
     <%= yield %>
+     <div class="wrapper-footer">
+      <div class="footer_container">
+        <footer class="footer">
+          
+        </footer>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,1 +1,9 @@
+<h1>These are your ratings:</h1>
 
+<ul>
+<li><% @ratings %></li>
+    
+
+</ul>
+
+<%= button_to "Rate New Song", new_rating_path, method: :get %>
