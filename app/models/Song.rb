@@ -45,11 +45,15 @@ class Song < ApplicationRecord
       end
    end
 
-   #returns an array of songs that have ratings, sorted from highest average rating to lowest
+   #returns an array of 10 songs that have ratings, sorted from highest average rating to lowest
    def self.top_songs
-      Song.rated_songs.sort_by do |song| 
+      sorted = Song.rated_songs.sort_by do |song| 
          song.average_rating
       end.reverse
+      until sorted.length <= 10 do
+         sorted.pop
+      end
+      sorted
    end
 
 end

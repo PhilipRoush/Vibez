@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   delete '/logout' => 'sessions#destroy'
   get '/profile/:id' => 'users#profile', as: 'profile'
+  get '/artists/top10' => 'artists#top10'
+  get '/songs/top10' => 'songs#top10'
   resources :users
   resources :songs, only: [:index, :show, :new, :create]
   resources :genres, only: [:index, :show]

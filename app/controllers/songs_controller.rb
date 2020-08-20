@@ -31,6 +31,10 @@ class SongsController < ApplicationController
     end
   end
 
+  def top10
+    render :top10
+  end
+
   private
   def find_by_id
     Song.find(params[:id])

@@ -1,8 +1,11 @@
 <h1>Artists</h1>
 
+<p><%= link_to "Top 10 List", artists_top10_path %></p>
+
 <ul>
 <% @artists.each do |artist| %>
-    <li><%= link_to artist.name, artist_path(artist) %></li>
+    <li><%= link_to artist.name, artist_path(artist) %> (<%= artist.songs.count %> songs)</li>
 <% end %>
 </ul>
+
 

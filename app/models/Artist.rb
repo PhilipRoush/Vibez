@@ -50,4 +50,16 @@ class Artist < ApplicationRecord
          song.average_rating
       end.reverse
    end
+
+   #returns an array of 10 artists sorted from highest average rating to lowest
+   def self.top_artists
+      sorted = Artist.all.sort_by do |artist| 
+          artist.average_rating
+      end.reverse
+      until sorted.length <= 10 do
+         sorted.pop
+      end
+      sorted
+   end
+
 end
