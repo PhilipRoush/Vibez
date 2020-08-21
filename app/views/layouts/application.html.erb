@@ -10,19 +10,37 @@
   </head>
 
   <body>
-    <div id="nav">
+  <div class="wrapper-masthead">
+      <div class="grid-container">
+        <header>
+          <div id="logo">
+            
+          </div>
+    <nav>
       <% if session[:user_id] == nil %>
         <%= link_to "Log In", login_path %>
         <%= link_to "Sign Up", signup_path %>
       <% else %>
-        <%= link_to "Log Out", logout_path, method: "delete" %>
+        
         <%= link_to "My Profile", profile_path(session[:user_id]) %>
       <% end %>
       <%= link_to "Song Index", songs_path %>
       <%= link_to "Artist Index", artists_path %>
       <%= link_to "Genre Index", genres_path %>
+      <%= link_to "Log Out", logout_path, method: "delete" %>
+      </nav>
 
     </div>
+     </header>
+      </div>
+    </div>
     <%= yield %>
+     <div class="wrapper-footer">
+      <div class="footer_container">
+        <footer class="footer">
+          
+        </footer>
+      </div>
+    </div>
   </body>
 </html>
