@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/artists/top10' => 'artists#top10'
   get '/songs/top10' => 'songs#top10'
   resources :users
-  resources :songs, only: [:index, :show, :new, :create]
+  resources :songs, only: [:index, :show, :new, :create, :edit, :update]
   resources :genres, only: [:index, :show]
   resources :artists, only: [:index, :show]
   resources :ratings, only: [:index, :show, :new, :create]

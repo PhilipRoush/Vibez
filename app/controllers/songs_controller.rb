@@ -31,6 +31,27 @@ class SongsController < ApplicationController
     end
   end
 
+  def edit
+    @song = find_by_id
+  end
+
+  def update
+    if params[:song][:artist_attributes][:name] == ""
+      params[:song].delete :artist_attributes
+    end
+    if params[:song][:genre_attributes][:name] == ""
+      params[:song].delete :genre_attributes
+    end
+
+    @song = find_by_id
+    if @song.valid?
+      @song.update(song_params)
+      redirect_to song_path(@song)
+    else
+      render :edit
+    end
+  end
+
   def top10
     render :top10
   end
