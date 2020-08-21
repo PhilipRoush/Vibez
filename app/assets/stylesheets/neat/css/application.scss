@@ -1,0 +1,168 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "base/base";
+@import "layouts"
+
+html {
+    background-color: rgba(247, 244, 241, 0.454);
+    box-sizing: border-box;
+  }
+
+body  {
+    // background-image: url('https://i.imgur.com/sKA3bJ0.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}    
+
+h1.signup   {
+    color: rgb(6, 6, 6); 
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 45px; font-weight: bold; 
+    letter-spacing: -1px; 
+    text-align: center;
+}
+
+p.signup    {
+    color: #111; 
+    background-color: rgba(196, 253, 255, 0.667);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 20px; font-weight: bold; 
+    letter-spacing: -1px; 
+    text-align: center;
+}
+
+.signup-form {
+    color: rgb(92, 33, 90);
+    text-align: center;
+    font-size: 21px; font-weight: bolder;
+}
+
+h1.login   {
+    color: #111; 
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 45px; font-weight: bold; 
+    letter-spacing: -1px; 
+    text-align: center;
+}
+
+.log  {
+    color: #111; 
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: -1px; 
+    text-align: center;
+}
+
+h1.index {
+    text-align: center;
+}
+
+.button_to {
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+}
+
+.login-form {
+    text-align: center;
+}
+
+.yes {
+    text-align: center;
+
+}
+
+nav {
+    float:right;
+    line-height: 72px;
+    
+    & a {
+      font-size:18px;
+      color: #119cdd;
+      text-transform: uppercase;
+      margin-right:40px;
+      }
+      
+      &:last-child {
+        margin-right:9px;
+      }
+    }
+  
+
+
+.wrapper-masthead {
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    color: white;
+    width: 103%;
+    padding: .2rem;
+    background: #4a0ec2
+  }
+
+  .logout {
+    position: fixed;
+    left: 900px;
+    top: 5px;
+  }
+
+  .pro {
+    @include position(relative, 0 null null 10em);
+  }
+
+  .row-wrapper:nth-child(odd) {
+    background: #46c9da; }
+  .row-wrapper .grid-container {
+    max-width: 1044px;
+    margin: 122px auto; }
+    .row-wrapper .grid-container::after {
+      clear: both;
+      content: "";
+      display: block; 
+    }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+  font-size: 1.25em;
+  line-height: 1.2;
+  margin: 0 0 0.75em;
+  text-transform: uppercase; }
+
+  h1 {
+    font-size: 3em; }
+  
+  h2,
+  h3 {
+    font-size: 1.8em;
+    font-weight: normal;
+    margin: 2px 0 10px; }
+  
+  h3 {
+    color: #E3857D;
+    text-transform: none; }
+  
+  h5 {
+    color: #E3857D;
+    font-size: 1.125em;
+    margin: 0 0 8px 0; }
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.textarea {
+    @include size(2em);
+  }
