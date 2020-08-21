@@ -1,16 +1,12 @@
-<h1><%= "Rate your songs!" %></h1>
+<h1><%= "Rate this song!" %></h1>
 
 <br>
 <%= form_for (@rating) do |f| %>
-    
-    <h4><%= f.label :song_id, "Select a Song" %><h4> 
-     <%= f.collection_select :song_id, Song.all, :id, :title, prompt: true %><br>
-    <br>
-    <h3>Song Rating:</h3>
 
-        <%= f.label :rating, "Rate this song (1-5):"%>
-        <%= f.select(:rating, [5,4,3,2,1], {}, {:class=>"form-control"}) %>
-    <%= f.submit :"Create Rating", class:"btn btn-primary"%>
+  <%= f.hidden_field :song_id, :value => @rating.song_id %>
+  <%= f.label :rating, "Rating (1-5):"%>
+  <%= f.select(:rating, [5,4,3,2,1], {}, {:class=>"form-control"}) %>
+  <%= f.submit :"Rate", class:"btn btn-primary"%>
 <% end %>
 <% if @errors %>
   <% @errors.each do |error| %>
