@@ -1,0 +1,33 @@
+
+<h1>Edit</h1>
+
+<%= form_for(@song) do |f| %>
+
+<%= f.label :title %><br>
+<%= f.text_field :title %><br><br>
+
+<%= f.label "Choose Existing Artist" %><br>
+<%= f.collection_select :artist_id, Artist.all, :id, :name, :prompt => "Select" %><br>
+<%= f.label "Or Type in an Artist's Name" %><br>
+<%= f.fields_for :artist do |artist| %>
+    <%= artist.text_field :name %>
+  <% end %>
+<br><br>
+
+<%= f.label "Choose Existing Genre" %><br>
+<%= f.collection_select :genre_id, Genre.all, :id, :name, :prompt => "Select" %><br>
+<%= f.label "Or type in a Genre name" %><br>
+<%= f.fields_for :genre do |genre| %>
+    <%= genre.text_field :name %>
+<% end %><br><br>
+
+<%= f.label :release_date %><br>
+<%= f.date_field :release_date %><br><br>
+
+<%= f.label "Youtube Embed Link" %><br>
+<%= link_to "(how to find it)", "https://wpexplorer-themes.com/total/docs/get-embed-urllink-youtube-video/" %><br>
+<%= f.text_field :link %><br><br>
+
+<%= f.submit "Update Song" %>
+
+<% end %>
