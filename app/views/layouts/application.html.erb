@@ -24,9 +24,9 @@
         
         <%= link_to "My Profile", profile_path(session[:user_id]) %>
       <% end %>
-      <%= link_to "Song Index", songs_path %>
-      <%= link_to "Artist Index", artists_path %>
-      <%= link_to "Genre Index", genres_path %>
+      <%= link_to "Songs", songs_path %>
+      <%= link_to "Artists", artists_path %>
+      <%= link_to "Genres", genres_path %>
       <%= link_to "Log Out", logout_path, method: "delete" %>
       </nav>
 
