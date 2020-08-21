@@ -12,6 +12,7 @@ class SongsController < ApplicationController
     @artist = Artist.new
     @genre = Genre.new
     @song = Song.new(artist: @artist, genre: @genre)
+    @errors = flash[:errors]
   end
 
   def create
@@ -27,12 +28,14 @@ class SongsController < ApplicationController
       @song.save
       redirect_to song_path(@song)
     else
-      render :new
+      flash[:errors] = @song.errors.full_messages
+      redirect_to new_song_path
     end
   end
 
   def edit
     @song = find_by_id
+    @errors = flash[:errors]
   end
 
   def update
@@ -44,11 +47,11 @@ class SongsController < ApplicationController
     end
 
     @song = find_by_id
-    if @song.valid?
-      @song.update(song_params)
+    if @song.update(song_params)
       redirect_to song_path(@song)
     else
-      render :edit
+      flash[:errors] = @song.errors.full_messages
+      redirect_to edit_song_path(@song)
     end
   end
 
