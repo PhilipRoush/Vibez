@@ -1,4 +1,4 @@
-
+<div class="create">
 <h1>Create Song</h1>
 
 <%= form_for(@song) do |f| %>
@@ -31,8 +31,12 @@
 <%= f.submit "Create Song" %>
 
 <% end %>
+
+</div>
+
 <% if @errors %>
   <% @errors.each do |error| %>
     <p><%= error %></p>
   <% end %>
 <% end %>
+

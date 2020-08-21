@@ -1,12 +1,14 @@
+<div class="allsongs">
 <h1>Songs</h1>
-
-<p><%= link_to "Top 10 List", songs_top10_path %></p>
-
+<br>
+<div><%= button_to "Add Song", new_song_path, method: :get %></div>
+<p><%= button_to "Top 10 List", songs_top10_path, method: :get%></p>
+<br>
 <ul>
 <% @songs.each do |song| %>
     <li><%= link_to song.title, song_path(song) %> (<%= link_to song.artist.name, artist_path(song.artist) %>)</li>
 <% end %>
 </ul>
+</div>
 
-<%= button_to "Add Song", new_song_path, method: :get %>
 

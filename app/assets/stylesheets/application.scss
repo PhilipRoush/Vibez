@@ -1,6 +1,9 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "base/base";
 
 body  {
-    background-image: url('https://i.imgur.com/sKA3bJ0.png');
+    // background-image: url('https://i.imgur.com/sKA3bJ0.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -34,15 +37,13 @@ h1.index {
     text-align: center;
 }
 
-.button_to {
-    text-align: center;
-}
+
 
 .title {
     text-align: center;
 }
 
-.login-form {
+.login {
     text-align: center;
 }
 
@@ -51,8 +52,8 @@ h1.index {
 
 }
 
-.nav {
-text-align: center;
+.log {
+    text-align: center;
 
 }
 
@@ -62,12 +63,206 @@ text-align: center;
     left: 0;
     text-align: center;
     color: white;
-    width: 103%;
-    padding: .2rem;
-    background: #0de6be
+    width: 100%;
+    padding: 1.2rem;
+    background: #97d0dd
   }
 
-//   h1.profile_w {
+  html,
+  body {
+    height: 100%;
+  }
+  
+  ul,
+  ol {
+    list-style-type: none;
+    top: 23px;
+    left: 23px;
+    margin: 0;
+    padding: 0;
+    background-color: #cfbfc3cb;
+  }
+  
+  dl {
+    margin: 0;
+  }
+  
+  dt {
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  dd {
+    margin: 0;
+  }
+  
+  figure {
+    margin: 0;
+  }
+  
+  img,
+  picture {
+    margin: 0;
+    max-width: 100%;
+  }
+  
+  table {
+    border-collapse: collapse;
+    margin: var(--spacing) 0;
+    table-layout: fixed;
+    text-align: left;
+    width: 100%;
+  }
+  
+  thead {
+    line-height: var(--line-height--heading);
+    vertical-align: bottom;
+  }
+  
+  tbody {
+    vertical-align: top;
+  }
+  
+  tr {
+    border-bottom: var(--border);
+  }
+  
+  th {
+    font-weight: 600;
+  }
+  
+  th,
+  td {
+    padding: var(--spacing--small) var(--spacing--small) var(--spacing--small) 0;
+  }
+  
+  html {
+    color: #594C4F;
+    font-family: var(--font-family);
+    font-size: 100%;
+    line-height: var(--line-height);
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family--heading);
+    font-size: 4.25rem;
+    line-height: var(--line-height--heading);
+    margin: 0 0 var(--line-height);
+  }
+  
+  p {
+    @include position(relative, 72px null null 53em);
+  }
+  
+  
+  a {
+    color: #1565c0;
+    
+    text-decoration-skip-ink: auto;
+    -webkit-transition: color var(--duration) var(--timing);
+    transition: color var(--duration) var(--timing);
+  }
+  
+  a:hover {
+    color: #3b83d5;
+  }
+  
+  a:focus {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+  }
+  
+  hr {
+    border-bottom: var(--border);
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: var(--spacing) 0;
+  }
 
+  header nav {
+    float: right;
+    line-height: 72px; }
 
-//   }
+  nav a {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 18px;
+      color: #df5b1d;
+      text-transform: uppercase;
+      margin-right: 40px; }
+      header nav a:last-child {
+        margin-right: 9px; }
+
+        input,
+        select,
+        textarea {
+          display: block;
+          font-family: var(--font-family);
+          font-size: 1rem;
+        }
+        
+        [type="color"],
+        [type="date"],
+        [type="datetime"],
+        [type="datetime-local"],
+        [type="email"],
+        [type="month"],
+        [type="number"],
+        [type="password"],
+        [type="search"],
+        [type="tel"],
+        [type="text"],
+        [type="time"],
+        [type="url"],
+        [type="week"],
+        input:not([type]),
+        textarea {
+          appearance: none;
+          background-color: rgba(31, 177, 221, 0.213);
+          border: var(--border);
+          border-radius: var(--border-radius);
+          box-shadow: var(--form-box-shadow);
+          box-sizing: border-box;
+          margin-bottom: var(--spacing--small);
+          padding: calc(var(--spacing) / 3);
+          transition: border-color var(--duration) var(--timing);
+          width: 100%;
+        }
+
+    .allsongs {
+        text-align: center;
+    }
+    .allartists {
+        text-align: center;
+    }
+    
+
+    .button_to {
+        text-align: center;
+        background-color: antiquewhite;
+      }
+
+    .allgenres {
+        text-align: center;
+    }
+
+    .create {
+        text-align: center;
+    }
+
+    .topten {
+        text-align: center;
+    }
+    
+    .toptenA {
+        text-align: center;
+    }
+        
+         
+
+  

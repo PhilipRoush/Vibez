@@ -1,6 +1,6 @@
 <br>
-<%= button_to 'View Profile', profile_path(@user), :method => :get %>
-<%= button_to 'Edit Profile', edit_user_path(@user), :method => :get %>
-
 
 <h1> Welcome, <%= @user.username %></h1>
+<%= button_to 'View Profile', profile_path(@user), :method => :get %>
+<br>
+<%= button_to 'Edit Profile', edit_user_path(@user), :method => :get %>
