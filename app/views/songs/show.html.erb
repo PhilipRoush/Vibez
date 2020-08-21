@@ -9,5 +9,9 @@
 <p>Artist: <%= link_to @song.artist.name, artist_path(@song.artist) %></p>
 <p>Genre: <%= link_to @song.genre.name, genre_path(@song.genre) %></p>
 <p>Release Date: <%= @song.release_date %></p>
-<%= button_to "Rate This Song", new_rating_path, method: :get %>
-<%= link_to "Listen Here", @song.link %>
+
+<iframe width="560" height="315" src="<%= @song.link %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<%= button_to "Rate This Song", new_rating_path, method: :get %><br>
+<%= button_to "Edit Song", edit_song_path(@song), method: "get" %>

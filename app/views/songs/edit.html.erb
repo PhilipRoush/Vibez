@@ -1,5 +1,5 @@
-<div class="create">
-<h1>Create Song</h1>
+
+<h1>Edit</h1>
 
 <%= form_for(@song) do |f| %>
 
@@ -28,15 +28,11 @@
 <%= link_to "(how to find it)", "https://wpexplorer-themes.com/total/docs/get-embed-urllink-youtube-video/" %><br>
 <%= f.text_field :link %><br><br>
 
-<%= f.submit "Create Song" %>
+<%= f.submit "Update Song" %>
 
 <% end %>
-
-</div>
-
 <% if @errors %>
   <% @errors.each do |error| %>
     <p><%= error %></p>
   <% end %>
 <% end %>
-
