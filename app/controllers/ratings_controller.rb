@@ -8,7 +8,6 @@ class RatingsController < ApplicationController
 
   def create
     @user = session[:user_id]
-    binding.pry
     @rating = Rating.new(rating_params)
     @rating.user_id = @user
     @song = Song.find(@rating.song_id)
