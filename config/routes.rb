@@ -8,10 +8,11 @@ Rails.application.routes.draw do
   get '/profile/:id' => 'users#profile', as: 'profile'
   get '/artists/top10' => 'artists#top10'
   get '/songs/top10' => 'songs#top10'
+  get '/song/:id/rate' => 'ratings#new', as: 'new_rating'
   resources :users
   resources :songs, only: [:index, :show, :new, :create, :edit, :update]
   resources :genres, only: [:index, :show]
   resources :artists, only: [:index, :show]
-  resources :ratings, only: [:index, :show, :new, :create]
+  resources :ratings, only: [:index, :show, :create]
   
 end

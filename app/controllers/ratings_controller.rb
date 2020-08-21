@@ -2,7 +2,7 @@ class RatingsController < ApplicationController
 
 
   def new
-    @rating = Rating.new
+    @rating = Rating.new(song_id: params[:id])
     @errors = flash[:errors]
   end
 
